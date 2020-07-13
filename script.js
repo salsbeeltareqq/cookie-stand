@@ -40,7 +40,7 @@ var seattle = {
 }
 seattle.list();
 
-
+// bella
 var tokyo = {
     min_cust: 3,
     max_cust: 24,
