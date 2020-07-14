@@ -1,6 +1,6 @@
 'use_strict';
 
-var hour = ['6 AM ', '7 AM ', '8 AM ', '9 AM ', '10 AM ', '11 AM ', '12 PM ', '1 PM ', '2 PM ', '3 PM ', '4 PM ', '5 PM ', '6 PM ', '7 PM ','total']
+var hour = ['6 AM ', '7 AM ', '8 AM ', '9 AM ', '10 AM ', '11 AM ', '12 PM ', '1 PM ', '2 PM ', '3 PM ', '4 PM ', '5 PM ', '6 PM ', '7 PM ']
 function Loction(name,minC,maxC,AvgC,array){
     this.name  = name;
     this.minC = minC;
@@ -47,7 +47,7 @@ function Loction(name,minC,maxC,AvgC,array){
     tableHead.appendChild(tr);
      var boyOfTable = document.createElement("tbody");
     newTable.appendChild(boyOfTable);
-    for (let index = 0; index < hour.length+1; index++) {
+    for (let index = 0; index <= hour.length+1; index++) {
         var th = document.createElement('th');
         if (index == 0){
             th.textContent='    '
@@ -77,8 +77,31 @@ function Loction(name,minC,maxC,AvgC,array){
         
     }
 
-}
- creatTable();
+    }
+    creatTable();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //    for(i=0 ; i <allcityes.length ;i++){
 //        for (index=0; index < hour.length; index++){
