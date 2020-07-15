@@ -1,6 +1,6 @@
 'use_strict';
 
-var hour = ['6 AM ', '7 AM ', '8 AM ', '9 AM ', '10 AM ', '11 AM ', '12 PM ', '1 PM ', '2 PM ', '3 PM ', '4 PM ', '5 PM ', '6 PM ', '7 PM ']
+var hour = ['6 AM ', '7 AM ', '8 AM ', '9 AM ', '10 AM ', '11 AM ', '12 PM ', '1 PM ', '2 PM ', '3 PM ', '4 PM ', '5 PM ', '6 PM ', '7 PM ',]
 function Loction(name,minC,maxC,AvgC,array){
     this.name  = name;
     this.minC = minC;
@@ -39,7 +39,8 @@ function Loction(name,minC,maxC,AvgC,array){
   function creatTable(){
      var bella= document.getElementById("bella")
      
-    var newTable = document.createElement("table");
+    var newTable = document.createElement("table")
+    newTable.setAttribute("id", "mytable");
     bella.appendChild(newTable);
     var tableHead = document.createElement('thead')
     var tr = document.createElement('tr');
@@ -47,40 +48,97 @@ function Loction(name,minC,maxC,AvgC,array){
     tableHead.appendChild(tr);
      var boyOfTable = document.createElement("tbody");
     newTable.appendChild(boyOfTable);
-    for (let index = 0; index <= hour.length+1; index++) {
+  
+    for (let index = 0; index < hour.length+2; index++) {
         var th = document.createElement('th');
-        if (index == 0){
+        console.log(index);
+        if(index == hour.length+1){
+            th.textContent='total'
+        }
+        else if (index == 0){
             th.textContent='    '
         }else{
-            th.textContent = hour[index]
+            th.textContent = hour[index-1]
             
         }
         tr.appendChild(th);
         
     }
-    for (let index = 0; index < allcityes.length; index++) {
         
+    for (let index = 0; index < allcityes.length; index++) {
         var row = document.createElement("tr");
-        row.textContent = allcityes[index].name
+        if(index ==allcityes.length){
+           
+    
+        }else{
+            row.textContent = allcityes[index].name
+        }
+       
         boyOfTable.appendChild(row);
-        for (let index2 = 0; index2 < hour.length; index2++) {
+       
+        for (let index2 = 0; index2 < hour.length+1; index2++) {
+        
             var td = document.createElement('td')
            
             row.appendChild(td)
-            if (index2 == hour.length-1){
+        
+            if (index2 == hour.length){
+
                 td.textContent=allcityes[index].total
 
             }else{
                 td.textContent = allcityes[index].array[index2]
+                
             }
+            
         }
         
     }
 
     }
     creatTable();
+    function total(){
+        var ft = document.createElement("tfoot")
+        var table = document.getElementById("mytable")
+        table.appendChild(ft)
+        var tr = document.createElement('tr')
+        tr.textContent = 'total'
+        ft.appendChild(tr)
+        var totaloftotal=0;
+        for (let index = 0; index < hour.length; index++) {
+            var td = document.createElement('td')
+            tr.appendChild(td)
+            var totalcolm=0
+            for (let index3 = 0; index3 < allcityes.length; index3++) {
+                totaloftotal=totaloftotal+allcityes[index3].array[index] 
+                totalcolm=totalcolm+allcityes[index3].array[index]
+              
+                
+            }
+            td.textContent = totalcolm;
+        }
+        var td = document.createElement('td')
+        tr.appendChild(td)
+        td.textContent=totaloftotal
 
+    }
+    total();
+    var submit=document.getElementById("bella1").addEventListener('submit',function (e) {
+       
+        var shopename = e.target.newshop.value 
+        var minC = e.target.minC.value 
+       var maxC = e.target.maxC.value 
+       
+      
+       var AvgC= e.target.avgcookies.value 
+       event.preventDefault();
 
+       var newshop = new Loction(shopename,minC,maxC,AvgC,[])
+       newshop.sailes();
+       allcityes.push(newshop)
+        creatTable();
+        total();
+   })
 
 
 
