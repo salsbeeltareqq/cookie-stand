@@ -3,18 +3,21 @@
     margin: 0;
   }
   body {
-    background-color: gray;
+    background-color: gainsboro;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
   }
   
-  #navbar {
+  #home {
     overflow: hidden;
-    background-color: #333;
+    background-color:pink;
     width: 100%;
     position: sticky;
     top: 0;
   }
   
-  #navbar a {
+  #home a {
     float: left;
     font-size: 16px;
     color: white;
@@ -66,3 +69,44 @@
   
     margin: 15px;
   }
+    table {
+      border: 1px solid black;
+      box-sizing: content-box;
+      background: padding-box;
+      bottom: auto;
+
+      
+    
+    }
+     th  {
+      border:1px solid black;
+      background-color:pink;
+      text-align: left;
+      height: 30px;
+      padding: 5px;
+    }
+    tr:hover{
+      background-color:navajowhite ;
+    }
+    tr :nth-child(even){
+        background-color: gainsboro;
+    }
+    fieldset {
+      display: block;
+      margin-left: 2px;
+      margin-right: 2px;
+      padding-top: 0.35em;
+      padding-bottom: 0.625em;
+      padding-left: 0.75em;
+      padding-right: 0.75em;
+      border: 2px groove (internal value);
+    }
+    input[type=button], input[type=text], input[type=password],input[type=email] {
+      background-color: #231;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
