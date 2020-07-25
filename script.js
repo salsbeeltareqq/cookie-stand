@@ -126,16 +126,20 @@ function Loction(name,minC,maxC,AvgC,array){
     var submit=document.getElementById("bella1").addEventListener('submit',function (e) {
        
         var shopename = e.target.newshop.value 
-        var minC = e.target.minC.value 
-       var maxC = e.target.maxC.value 
+        var minC = parseInt(e.target.minC.value )
+       var maxC = parseInt(e.target.maxC.value )
        
       
-       var AvgC= e.target.avgcookies.value 
+       var AvgC= parseFloat(e.target.avgcookies.value )
        event.preventDefault();
 
        var newshop = new Loction(shopename,minC,maxC,AvgC,[])
        newshop.sailes();
        allcityes.push(newshop)
+       var bella= document.getElementById("bella")
+       var table = document.getElementById('mytable')
+      bella.removeChild(table)
+
         creatTable();
         total();
    })
